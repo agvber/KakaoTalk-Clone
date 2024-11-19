@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -19,6 +20,12 @@ dependencyResolutionManagement {
     }
 }
 
+gradle.startParameter.excludedTaskNames.apply {
+    add(":build-logic:convention:testClasses")
+}
+
 rootProject.name = "KakaoTalk"
 include(":app")
- 
+include(":core:data")
+include(":core:common")
+include(":core:domain")
